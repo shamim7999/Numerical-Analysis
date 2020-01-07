@@ -22,18 +22,19 @@ using namespace std;
 ld X[mx],Y[mx],sum=0;
 ll n,x;
 
-void solve()
+void solve(ld A[], ld B[])
 {
     for(ll i=0; i<n; i++){
         ld lob=1,hor=1;
         for(ll j=0; j<n; j++){
             if(i == j) continue;
-            lob*=(x-X[j]);
-            hor*=(X[i]-X[j]);
+            lob*=(x-A[j]);
+            hor*=(A[i]-A[j]);
         }
-        sum+=((lob/hor)*Y[i]);
+        sum+=((lob/hor)*B[i]);
     }
     cout << "Value of f(" << x << ") is: " << sum << "\n";
+    sum=0;
 }
 
 void Input()
@@ -51,10 +52,10 @@ void Input()
        cin >> Y[i];
    }
    cout << "\nFor f(x) give the Value of x: ";
-   cin >> x;
-
-   solve();
-
+   while(cin >> x){
+       solve(X,Y);
+       cout << "\nFor f(x) give the Value of x: ";
+   }
 }
 
 int main()
