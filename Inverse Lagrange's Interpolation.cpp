@@ -51,10 +51,10 @@ void Input()
        cin >> Y[i];
    }
    cout << "\nFor x give the Value of [y = f(x)]: ";
-   cin >> y;
-
-   solve(Y,X);
-
+   while(cin >> y){
+      solve(Y,X);
+      cout << "\nFor x give the Value of [y = f(x)]: ";
+   }
 }
 
 int main()
